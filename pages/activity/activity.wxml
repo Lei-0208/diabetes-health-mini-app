@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="card">
+    <view class="title">运动记录</view>
+    <view class="sub-title">规律活动有助于稳定血糖</view>
+
+    <view class="form-item">
+      <text>运动类型</text>
+      <picker mode="selector" range="{{['快走','慢跑','骑行','瑜伽','力量训练']}}" bindchange="bindTypeChange">
+        <view class="picker-box">{{type}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text>运动时长（分钟）</text>
+      <input type="number" value="{{minutes}}" bindinput="bindMinutesInput" />
+    </view>
+
+    <button class="primary-btn" bindtap="saveRecord">保存记录</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">最近运动</view>
+    <view class="items" wx:for="{{records}}" wx:key="id">
+      <view class="item-row">
+        <text>{{item.date}}</text>
+        <text>{{item.type}}</text>
+        <text>{{item.minutes}} 分钟</text>
+      </view>
+    </view>
+  </view>
+</view>

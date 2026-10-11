@@ -1,0 +1,10 @@
+.user-name {
+  font-weight: 700;
+  color: #2d7b4d;
+  margin-bottom: 8rpx;
+}
+
+.post-content {
+  line-height: 1.8;
+  color: #506a5c;
+}

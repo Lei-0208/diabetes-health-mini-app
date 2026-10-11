@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="card">
+    <view class="title">用药提醒</view>
+    <view class="sub-title">按时服药，记录更稳定</view>
+  </view>
+
+  <view class="card">
+    <view class="reminder-list" wx:for="{{reminders}}" wx:key="id">
+      <view class="reminder-item">
+        <view>
+          <view class="reminder-name">{{item.name}}</view>
+          <view class="reminder-time">{{item.time}}</view>
+        </view>
+        <switch checked="{{item.enabled}}" data-index="{{index}}" bindchange="toggleReminder" />
+      </view>
+    </view>
+  </view>
+
+  <button class="primary-btn" bindtap="addReminder">新增提醒</button>
+</view>

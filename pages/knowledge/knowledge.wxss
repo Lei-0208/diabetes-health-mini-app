@@ -1,0 +1,10 @@
+.knowledge-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+}
+
+.knowledge-content {
+  color: #536a5d;
+  line-height: 1.8;
+}

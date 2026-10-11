@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="card">
+    <view class="title">糖尿病小常识</view>
+  </view>
+
+  <view class="card" wx:for="{{list}}" wx:key="title">
+    <view class="knowledge-title">{{item.title}}</view>
+    <view class="knowledge-content">{{item.content}}</view>
+  </view>
+</view>

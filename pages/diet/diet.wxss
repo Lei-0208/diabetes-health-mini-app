@@ -1,0 +1,43 @@
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 18rpx;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.food-item {
+  background: #f8fff9;
+  border: 1rpx solid #e4f5e9;
+  border-radius: 18rpx;
+  padding: 18rpx 20rpx;
+}
+
+.food-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.food-name {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.tag {
+  font-size: 20rpx;
+  background: #fff8d6;
+  color: #9c7600;
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
+}
+
+.food-detail {
+  color: #4d6455;
+  line-height: 1.7;
+}

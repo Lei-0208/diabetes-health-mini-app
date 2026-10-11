@@ -1,0 +1,33 @@
+.form-item {
+  margin: 28rpx 0;
+}
+
+.form-item text {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #4f6854;
+}
+
+input, .picker-box {
+  background: #f8faf8;
+  border: 1rpx solid #eaf2eb;
+  border-radius: 14rpx;
+  padding: 16rpx 18rpx;
+}
+
+button {
+  margin-top: 26rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+}
+
+.items {
+  margin-top: 12rpx;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #edf3ee;
+}

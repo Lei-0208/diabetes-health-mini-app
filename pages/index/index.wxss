@@ -1,0 +1,60 @@
+.hero {
+  background: linear-gradient(135deg, #ebfff1 0%, #f8ffe7 100%);
+  border: 1rpx solid #dff7e5;
+}
+
+.stat-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26rpx;
+}
+
+.stat-item {
+  flex: 1;
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 20rpx;
+  margin-right: 18rpx;
+}
+
+.stat-item:last-child {
+  margin-right: 0;
+}
+
+.label {
+  display: block;
+  font-size: 22rpx;
+  color: #7a8a79;
+  margin-bottom: 10rpx;
+}
+
+.value {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+
+.mini-card {
+  background: #f7fff8;
+  border: 1rpx solid #e5f5e8;
+  border-radius: 16rpx;
+  padding: 18rpx;
+  margin-bottom: 14rpx;
+}
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #f1f5f1;
+}

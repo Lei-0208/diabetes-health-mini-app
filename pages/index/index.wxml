@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="card hero">
+    <view class="title">糖友健康</view>
+    <view class="sub-title">健康管理日记</view>
+    <view class="stat-box">
+      <view class="stat-item">
+        <text class="label">最新血糖</text>
+        <text class="value green-text">{{todaySugar}} mmol/L</text>
+      </view>
+      <view class="stat-item">
+        <text class="label">平均值</text>
+        <text class="value yellow-text">{{averageSugar}} mmol/L</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">今日提醒</view>
+    <view class="mini-card">
+      <text>已开启提醒：{{reminderCount}} 个</text>
+    </view>
+    <view class="mini-card">
+      <text>目标：{{goal}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">最近记录</view>
+    <view class="record-list" wx:for="{{recentRecords}}" wx:key="time">
+      <view class="record-item">
+        <text>{{item.time}}</text>
+        <text class="green-text">{{item.value}} mmol/L</text>
+      </view>
+    </view>
+  </view>
+</view>

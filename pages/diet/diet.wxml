@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="card">
+    <view class="title">糖尿病人饮食建议</view>
+    <view class="sub-title">注意：少量多餐，控制总糖摄入，优先选择低糖高纤维食物。</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">推荐水果</view>
+    <view class="food-list" wx:for="{{fruits}}" wx:key="name">
+      <view class="food-item">
+        <view class="food-head">
+          <text class="food-name">{{item.name}}</text>
+          <text class="tag">{{item.type}}</text>
+        </view>
+        <view class="food-detail">{{item.benefit}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">推荐蔬菜</view>
+    <view class="food-list" wx:for="{{vegetables}}" wx:key="name">
+      <view class="food-item">
+        <view class="food-head">
+          <text class="food-name">{{item.name}}</text>
+          <text class="tag">{{item.type}}</text>
+        </view>
+        <view class="food-detail">{{item.benefit}}</view>
+      </view>
+    </view>
+  </view>
+</view>

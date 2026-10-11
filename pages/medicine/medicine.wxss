@@ -1,0 +1,23 @@
+.reminder-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eef5ee;
+}
+
+.reminder-name {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.reminder-time {
+  margin-top: 8rpx;
+  color: #607062;
+}
+
+button {
+  margin-top: 24rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+}

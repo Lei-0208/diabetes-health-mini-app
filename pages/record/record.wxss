@@ -1,0 +1,39 @@
+.form-item {
+  margin: 28rpx 0;
+}
+
+.form-item text {
+  display: block;
+  margin-bottom: 12rpx;
+  color: #4a5c4d;
+}
+
+input, .picker-box {
+  background: #f7faf7;
+  border: 1rpx solid #e7f2e8;
+  border-radius: 16rpx;
+  padding: 18rpx 20rpx;
+}
+
+button {
+  margin-top: 30rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+}
+
+.record-box {
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #eef3ee;
+}
+
+.record-row, .value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value-row {
+  margin-top: 10rpx;
+  font-weight: 700;
+  font-size: 30rpx;
+}

@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="card">
+    <view class="title">新增血糖记录</view>
+
+    <view class="form-item">
+      <text>检测时间</text>
+      <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+        <view class="picker-box">{{time}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text>检测类型</text>
+      <picker mode="selector" range="{{types}}" value="{{typeIndex}}" bindchange="bindTypeChange">
+        <view class="picker-box">{{types[typeIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text>血糖值</text>
+      <input placeholder="例如：7.2" type="digit" value="{{value}}" bindinput="bindValueInput" />
+    </view>
+
+    <button class="primary-btn" bindtap="addRecord">添加记录</button>
+  </view>
+
+  <view class="card">
+    <view class="title" style="font-size:32rpx;">最近记录</view>
+    <view class="record-box" wx:for="{{records}}" wx:key="id">
+      <view class="record-row">
+        <text>{{item.date}} {{item.time}}</text>
+        <text>{{item.type}}</text>
+      </view>
+      <view class="value-row green-text">{{item.value}} mmol/L</view>
+    </view>
+  </view>
+</view>

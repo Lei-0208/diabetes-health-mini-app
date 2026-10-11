@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="card">
+    <view class="title">糖友交流</view>
+    <view class="sub-title">互相鼓励、共同管理健康</view>
+  </view>
+
+  <view class="card" wx:for="{{posts}}" wx:key="user">
+    <view class="user-name">{{item.user}}</view>
+    <view class="post-content">{{item.content}}</view>
+  </view>
+</view>

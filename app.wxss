@@ -1,7 +1,6 @@
-/* 全局样式 */
 page {
-  background: linear-gradient(to bottom, #f6fff7 0%, #ffffff 100%);
-  color: #1f2d1f;
+  background: linear-gradient(to bottom, #f4fff5 0%, #ffffff 100%);
+  color: #213b2c;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -10,47 +9,52 @@ page {
 }
 
 .card {
-  background: #ffffff;
-  border-radius: 20rpx;
-  box-shadow: 0 8rpx 24r rgba(76, 175, 80, 0.08);
+  background: #fff;
+  border-radius: 22rpx;
+  box-shadow: 0 10rpx 24r rgba(76, 175, 80, 0.08);
   padding: 24rpx;
-  margin-bottom: 24rpx;
+  margin-bottom: 22rpx;
 }
 
 .primary-btn {
-  background: linear-gradient(135deg, #6ccf72 0%, #4CAF50 100%);
-  color: #fff;
-  border-radius: 18rpx;
+  background: linear-gradient(135deg, #6ddc7b 0%, #4CAF50 100%);
   border: none;
+  border-radius: 18rpx;
+  color: #fff;
   font-weight: 600;
 }
 
 .secondary-btn {
   background: #fff7d6;
-  color: #8a6d00;
-  border: 1rpx solid #f3d86b;
-  border-radius: 18rpx;
+  border: 1rpx solid #f3d77b;
+  border-radius: 16rpx;
+  color: #8b6b00;
 }
 
 .title {
-  font-size: 36rpx;
+  font-size: 38rpx;
   font-weight: 700;
-  color: #1d3b2b;
+  color: #193327;
 }
 
 .sub-title {
   font-size: 28rpx;
-  color: #4a5d4d;
+  color: #58705d;
 }
 
-.color-green {
+.small-tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 20rpx;
+  background: #edf9ee;
   color: #2e8b57;
 }
 
-.color-yellow {
-  color: #d4a52a;
+.green-text {
+  color: #2b8a57;
 }
 
-.color-white {
-  color: #ffffff;
+.yellow-text {
+  color: #c28a00;
 }

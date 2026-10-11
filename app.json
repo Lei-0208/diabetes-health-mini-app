@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record/record",
+    "pages/diet/diet",
+    "pages/medicine/medicine",
+    "pages/activity/activity",
+    "pages/knowledge/knowledge",
+    "pages/community/community"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4CAF50",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f7fff7"
+  },
+  "tabBar": {
+    "color": "#7b8a7b",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "text": "记录",
+        "iconPath": "images/record.png",
+        "selectedIconPath": "images/record_active.png"
+      },
+      {
+        "pagePath": "pages/diet/diet",
+        "text": "饮食",
+        "iconPath": "images/diet.png",
+        "selectedIconPath": "images/diet_active.png"
+      },
+      {
+        "pagePath": "pages/medicine/medicine",
+        "text": "提醒",
+        "iconPath": "images/medicine.png",
+        "selectedIconPath": "images/medicine_active.png"
+      }
+    ]
+  }
+}
