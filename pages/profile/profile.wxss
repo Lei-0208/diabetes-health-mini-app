@@ -1,0 +1,61 @@
+.profile-card {
+  text-align: center;
+  background: linear-gradient(135deg, #f2fff6 0%, #fffcef 100%);
+}
+
+.profile-avatar {
+  font-size: 90rpx;
+  margin-bottom: 12rpx;
+}
+
+.profile-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1d3b2b;
+}
+
+.profile-phone {
+  color: #7a8a7a;
+  margin-top: 8rpx;
+}
+
+.goal-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7fff8;
+  border-radius: 16rpx;
+  padding: 18rpx 20rpx;
+}
+
+.mini-btn {
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 22rpx;
+  padding: 8rpx 16rpx;
+  line-height: 1.4;
+  min-width: 120rpx;
+}
+
+.stats-card {
+  margin-bottom: 0;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #eef5ee;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}

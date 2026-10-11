@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="card profile-card">
+    <view class="profile-avatar">👤</view>
+    <view class="profile-name">{{userInfo.name || '糖友'}}</view>
+    <view class="profile-phone">{{userInfo.phone || '未绑定手机号'}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">健康目标</view>
+    <view class="goal-box">
+      <text>{{goal}}</text>
+      <button class="mini-btn" bindtap="editGoal">修改</button>
+    </view>
+  </view>
+
+  <view class="card stats-card">
+    <view class="section-title">我的数据</view>
+    <view class="stats-list">
+      <view class="stat-row">
+        <text>记录总数</text>
+        <text>{{stats.days}}</text>
+      </view>
+      <view class="stat-row">
+        <text>平均血糖</text>
+        <text>{{stats.average}} mmol/L</text>
+      </view>
+      <view class="stat-row">
+        <text>提醒开启</text>
+        <text>{{stats.reminders}} 个</text>
+      </view>
+      <view class="stat-row">
+        <text>运动总时长</text>
+        <text>{{stats.activity}} 分钟</text>
+      </view>
+    </view>
+  </view>
+</view>

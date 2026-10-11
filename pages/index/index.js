@@ -1,37 +1,115 @@
 Page({
   data: {
-    todaySugar: '7.6',
-    averageSugar: '7.1',
-    reminderCount: 2,
-    goal: '保持血糖稳定，步行30分钟',
-    recentRecords: [
-      { time: '早餐前', value: 6.8 },
-      { time: '午餐后', value: 8.1 },
-      { time: '晚餐后', value: 7.4 },
-      { time: '睡前', value: 7.0 }
-    ]
+    userInfo: null,
+    todayStats: {
+      averageSugar: 0,
+      sugarTimes: 0,
+      highestSugar: 0,
+      lowestSugar: 0,
+      status: '正常'
+    },
+    weekStats: {
+      averageSugar: 0,
+      days: 0
+    },
+    monthStats: {
+      averageSugar: 0,
+      days: 0
+    },
+    activityToday: 0,
+    medicineCount: 0,
+    recentRecords: []
   },
   onShow() {
+    this.loadUserInfo()
+    this.calculateStats()
+  },
+  loadUserInfo() {
+    const userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      wx.redirectTo({ url: '/pages/login/login' })
+      return
+    }
+    this.setData({ userInfo })
+  },
+  calculateStats() {
     const records = wx.getStorageSync('sugarRecords') || []
     const reminders = wx.getStorageSync('medicineReminders') || []
-    const activityRecords = wx.getStorageSync('activityRecords') || []
+    const activities = wx.getStorageSync('activityRecords') || []
 
-    if (records.length > 0) {
-      const latest = records[records.length - 1]
-      const values = records.map(item => Number(item.value))
-      const avg = (values.reduce((sum, item) => sum + item, 0) / values.length).toFixed(1)
+    const today = new Date().toLocaleDateString()
+    const todayRecords = records.filter(r => r.date === today)
 
-      this.setData({
-        todaySugar: latest.value,
-        averageSugar: avg,
-        reminderCount: reminders.filter(item => item.enabled).length,
-        goal: activityRecords.length > 0 ? `今日步数 ${activityRecords[activityRecords.length - 1].minutes} 分钟` : '保持血糖稳定，步行30分钟'
-      })
-    } else {
-      this.setData({
-        reminderCount: reminders.filter(item => item.enabled).length,
-        goal: activityRecords.length > 0 ? `今日步数 ${activityRecords[activityRecords.length - 1].minutes} 分钟` : '保持血糖稳定，步行30分钟'
-      })
+    let todayAvg = 0
+    let highest = 0
+    let lowest = 0
+
+    if (todayRecords.length > 0) {
+      const sum = todayRecords.reduce((acc, r) => acc + Number(r.value), 0)
+      todayAvg = (sum / todayRecords.length).toFixed(1)
+      highest = Math.max(...todayRecords.map(r => Number(r.value))).toFixed(1)
+      lowest = Math.min(...todayRecords.map(r => Number(r.value))).toFixed(1)
     }
+
+    let status = '未记录'
+    if (todayRecords.length > 0) {
+      const lastValue = Number(todayRecords[todayRecords.length - 1].value)
+      if (lastValue < 5.6) status = '偏低 ⚠️'
+      else if (lastValue <= 7.0) status = '正常 ✓'
+      else if (lastValue <= 10.0) status = '轻微升高 ⚠️'
+      else status = '升高 🔴'
+    }
+
+    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+    const monthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+
+    const weekRecords = records.filter(r => new Date(r.date) >= weekAgo)
+    const monthRecords = records.filter(r => new Date(r.date) >= monthAgo)
+
+    let weekAvg = 0
+    if (weekRecords.length > 0) {
+      const sum = weekRecords.reduce((acc, r) => acc + Number(r.value), 0)
+      weekAvg = (sum / weekRecords.length).toFixed(1)
+    }
+
+    let monthAvg = 0
+    if (monthRecords.length > 0) {
+      const sum = monthRecords.reduce((acc, r) => acc + Number(r.value), 0)
+      monthAvg = (sum / monthRecords.length).toFixed(1)
+    }
+
+    const totalMinutes = activities
+      .filter(a => a.date === today)
+      .reduce((acc, a) => acc + Number(a.minutes || 0), 0)
+
+    this.setData({
+      todayStats: {
+        averageSugar: todayAvg,
+        sugarTimes: todayRecords.length,
+        highestSugar: highest,
+        lowestSugar: lowest,
+        status
+      },
+      weekStats: {
+        averageSugar: weekAvg,
+        days: weekRecords.length
+      },
+      monthStats: {
+        averageSugar: monthAvg,
+        days: monthRecords.length
+      },
+      activityToday: totalMinutes,
+      medicineCount: reminders.filter(r => r.enabled).length,
+      recentRecords: todayRecords.slice(-3).reverse()
+    })
+  },
+  navigateToRecord() {
+    wx.navigateTo({ url: '/pages/record/record' })
+  },
+  navigateToChart() {
+    wx.navigateTo({ url: '/pages/chart/chart' })
+  },
+  navigateToProfile() {
+    wx.navigateTo({ url: '/pages/profile/profile' })
   }
 })

@@ -2,8 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20rpx 0;
+  padding: 22rpx 0;
   border-bottom: 1rpx solid #eef5ee;
+}
+
+.reminder-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
 }
 
 .reminder-name {
@@ -11,13 +17,21 @@
   font-weight: 700;
 }
 
-.reminder-time {
-  margin-top: 8rpx;
-  color: #607062;
+.time-picker {
+  padding: 10rpx 14rpx;
+  border: 1rpx solid #dfece2;
+  border-radius: 12rpx;
+  background: #f8fff9;
+  color: #4a5d4d;
+}
+
+.action-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
 }
 
 button {
-  margin-top: 24rpx;
   height: 82rpx;
   line-height: 82rpx;
 }

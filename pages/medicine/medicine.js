@@ -1,29 +1,27 @@
 Page({
   data: {
-    reminders: []
+    reminders: [],
+    isNotificationReady: false,
+    selectedTime: '08:00'
   },
   onLoad() {
-    this.loadData()
+    this.loadReminders()
   },
   onShow() {
-    this.loadData()
+    this.loadReminders()
   },
-  loadData() {
-    const reminders = wx.getStorageSync('medicineReminders') || [
-      { id: 1, time: '08:00', name: '降糖药', enabled: true },
-      { id: 2, time: '12:30', name: '早餐后药', enabled: true }
-    ]
+  loadReminders() {
+    const reminders = wx.getStorageSync('medicineReminders') || []
     this.setData({ reminders })
   },
   addReminder() {
-    const reminder = {
+    const list = this.data.reminders
+    list.push({
       id: Date.now(),
       time: '09:00',
-      name: '新提醒',
+      name: '新用药提醒',
       enabled: true
-    }
-    const list = this.data.reminders
-    list.push(reminder)
+    })
     wx.setStorageSync('medicineReminders', list)
     this.setData({ reminders: list })
   },
@@ -33,5 +31,18 @@ Page({
     list[index].enabled = !list[index].enabled
     wx.setStorageSync('medicineReminders', list)
     this.setData({ reminders: list })
+  },
+  changeTime(e) {
+    const { index } = e.currentTarget.dataset
+    const time = e.detail.value
+    const list = this.data.reminders
+    list[index].time = time
+    wx.setStorageSync('medicineReminders', list)
+    this.setData({ reminders: list })
+  },
+  setNotification() {
+    const { reminders } = this.data
+    wx.showToast({ title: '提醒设置已保存', icon: 'success' })
+    wx.setStorageSync('medicineReminders', reminders)
   }
 })

@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="card">
+    <view class="title">血糖趋势分析</view>
+    <view class="range-selector">
+      <button class="range-btn" data-range="7" bindtap="switchTimeRange">7天</button>
+      <button class="range-btn" data-range="14" bindtap="switchTimeRange">14天</button>
+      <button class="range-btn" data-range="30" bindtap="switchTimeRange">30天</button>
+    </view>
+  </view>
+
+  <view class="card chart-container">
+    <canvas canvas-id="sugarChart" style="width: 100%; height: 360px; background: #f9fff9; border-radius: 20rpx;"></canvas>
+  </view>
+
+  <view class="card stats-summary">
+    <view class="summary-title">统计概览</view>
+    <view class="summary-items">
+      <view class="summary-item">
+        <view class="summary-label">平均血糖</view>
+        <view class="summary-value green-text">{{chartData.average}}</view>
+      </view>
+      <view class="summary-item">
+        <view class="summary-label">最高</view>
+        <view class="summary-value yellow-text">{{chartData.highest}}</view>
+      </view>
+      <view class="summary-item">
+        <view class="summary-label">最低</view>
+        <view class="summary-value">{{chartData.lowest}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card tips-card">
+    <view class="tips-title">💡 健康提示</view>
+    <view class="tips-content">
+      <text>正常空腹血糖：3.9-5.6 mmol/L</text>
+      <text>正常餐后2小时血糖：＜7.8 mmol/L</text>
+      <text>糖尿病控制目标：空腹4.4-7.0 mmol/L</text>
+    </view>
+  </view>
+</view>

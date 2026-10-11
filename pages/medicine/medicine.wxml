@@ -1,20 +1,25 @@
 <view class="container">
   <view class="card">
     <view class="title">用药提醒</view>
-    <view class="sub-title">按时服药，记录更稳定</view>
+    <view class="sub-title">设置提醒，按时服药更安心</view>
   </view>
 
   <view class="card">
     <view class="reminder-list" wx:for="{{reminders}}" wx:key="id">
       <view class="reminder-item">
-        <view>
+        <view class="reminder-main">
           <view class="reminder-name">{{item.name}}</view>
-          <view class="reminder-time">{{item.time}}</view>
+          <picker class="time-picker" mode="time" value="{{item.time}}" data-index="{{index}}" bindchange="changeTime">
+            <view>{{item.time}}</view>
+          </picker>
         </view>
         <switch checked="{{item.enabled}}" data-index="{{index}}" bindchange="toggleReminder" />
       </view>
     </view>
   </view>
 
-  <button class="primary-btn" bindtap="addReminder">新增提醒</button>
+  <view class="card action-box">
+    <button class="primary-btn" bindtap="addReminder">新增提醒</button>
+    <button class="secondary-btn" bindtap="setNotification">保存提醒设置</button>
+  </view>
 </view>

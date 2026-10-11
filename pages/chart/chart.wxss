@@ -1,0 +1,86 @@
+.range-selector {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.range-btn {
+  flex: 1;
+  background: #f0f5f0;
+  border: 1rpx solid #d8e8dd;
+  border-radius: 14rpx;
+  color: #4a5d4d;
+  font-size: 24rpx;
+  padding: 12rpx 0;
+  margin: 0;
+}
+
+.range-btn:active {
+  background: #4CAF50;
+  color: #fff;
+  border-color: #4CAF50;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-summary {
+  margin-bottom: 0;
+}
+
+.summary-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+
+.summary-items {
+  display: flex;
+  justify-content: space-around;
+  background: #f7fff8;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary-label {
+  font-size: 22rpx;
+  color: #7a8a7a;
+  margin-bottom: 10rpx;
+}
+
+.summary-value {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.tips-card {
+  background: #fff8e8;
+  border: 1rpx solid #ffe8b8;
+}
+
+.tips-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.tips-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.tips-content text {
+  font-size: 24rpx;
+  color: #8b6b00;
+  line-height: 1.6;
+}

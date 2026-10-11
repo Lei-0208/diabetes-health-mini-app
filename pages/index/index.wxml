@@ -1,35 +1,94 @@
 <view class="container">
-  <view class="card hero">
-    <view class="title">糖友健康</view>
-    <view class="sub-title">健康管理日记</view>
-    <view class="stat-box">
-      <view class="stat-item">
-        <text class="label">最新血糖</text>
-        <text class="value green-text">{{todaySugar}} mmol/L</text>
+  <view class="user-header" bindtap="navigateToProfile">
+    <view class="user-info">
+      <view class="avatar">👤</view>
+      <view class="user-details">
+        <view class="user-name">{{userInfo.name || '用户'}}</view>
+        <view class="user-subtitle">点击进入个人中心</view>
       </view>
-      <view class="stat-item">
-        <text class="label">平均值</text>
-        <text class="value yellow-text">{{averageSugar}} mmol/L</text>
+    </view>
+    <view class="arrow">→</view>
+  </view>
+
+  <view class="card status-card" bindtap="navigateToRecord">
+    <view class="status-header">
+      <text class="status-label">今日血糖状态</text>
+      <text class="status-badge">{{todayStats.status}}</text>
+    </view>
+    <view class="status-value">
+      <text class="value">{{todayStats.averageSugar || '-'}}</text>
+      <text class="unit">mmol/L</text>
+    </view>
+    <view class="status-detail">
+      <view class="detail-item">
+        <text class="detail-label">最高</text>
+        <text class="detail-value">{{todayStats.highestSugar || '-'}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-label">最低</text>
+        <text class="detail-value">{{todayStats.lowestSugar || '-'}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-label">次数</text>
+        <text class="detail-value">{{todayStats.sugarTimes}}</text>
+      </view>
+    </view>
+    <view class="status-footer">点击添加新记录 →</view>
+  </view>
+
+  <view class="stats-group">
+    <view class="stat-card small-card" bindtap="navigateToChart">
+      <view class="stat-icon">📊</view>
+      <view class="stat-content">
+        <view class="stat-title">周平均血糖</view>
+        <view class="stat-value">{{weekStats.averageSugar || '-'}}</view>
+        <view class="stat-subtitle">{{weekStats.days}} 天数据</view>
+      </view>
+    </view>
+
+    <view class="stat-card small-card">
+      <view class="stat-icon">📈</view>
+      <view class="stat-content">
+        <view class="stat-title">月平均血糖</view>
+        <view class="stat-value">{{monthStats.averageSugar || '-'}}</view>
+        <view class="stat-subtitle">{{monthStats.days}} 天数据</view>
       </view>
     </view>
   </view>
 
-  <view class="card">
-    <view class="section-title">今日提醒</view>
-    <view class="mini-card">
-      <text>已开启提醒：{{reminderCount}} 个</text>
+  <view class="card goals-card">
+    <view class="section-title">今日目标</view>
+    <view class="goal-item">
+      <view class="goal-icon">💊</view>
+      <view class="goal-info">
+        <text class="goal-name">用药提醒</text>
+        <text class="goal-value">{{medicineCount}} 个已设置</text>
+      </view>
+      <view class="goal-status">✓</view>
     </view>
-    <view class="mini-card">
-      <text>目标：{{goal}}</text>
+    <view class="goal-item">
+      <view class="goal-icon">🚶</view>
+      <view class="goal-info">
+        <text class="goal-name">今日运动</text>
+        <text class="goal-value">{{activityToday}} 分钟</text>
+      </view>
+      <view class="goal-status" style="color: {{activityToday >= 30 ? '#4CAF50' : '#ff9800'}}">{{activityToday >= 30 ? '✓' : '◐'}}</view>
     </view>
   </view>
 
   <view class="card">
     <view class="section-title">最近记录</view>
-    <view class="record-list" wx:for="{{recentRecords}}" wx:key="time">
+    <view wx:if="{{recentRecords.length === 0}}" class="no-data">
+      <view>还没有今日记录</view>
+      <view class="no-data-sub">快去添加第一条血糖记录吧</view>
+    </view>
+    <view class="record-list" wx:for="{{recentRecords}}" wx:key="id">
       <view class="record-item">
-        <text>{{item.time}}</text>
-        <text class="green-text">{{item.value}} mmol/L</text>
+        <view class="record-meta">
+          <text class="record-time">{{item.time}}</text>
+          <text class="record-type">{{item.type}}</text>
+        </view>
+        <text class="record-value green-text">{{item.value}} mmol/L</text>
       </view>
     </view>
   </view>
