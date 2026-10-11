@@ -1,0 +1,47 @@
+<view class="login-container">
+  <view class="header">
+    <view class="logo">🩺</view>
+    <view class="title">糖友健康</view>
+    <view class="subtitle">让健康管理更简单</view>
+  </view>
+
+  <view class="tabs">
+    <view class="tab" data-tab="0" bindtap="switchTab" style="color: {{tab === 0 ? '#4CAF50' : '#999'}}">登录</view>
+    <view class="tab" data-tab="1" bindtap="switchTab" style="color: {{tab === 1 ? '#4CAF50' : '#999'}}">注册</view>
+  </view>
+
+  <!-- 登录表单 -->
+  <view wx:if="{{tab === 0}}" class="form">
+    <view class="form-item">
+      <text>手机号</text>
+      <input placeholder="请输入手机号" value="{{loginPhone}}" bindinput="bindLoginPhoneInput" />
+    </view>
+
+    <view class="form-item">
+      <text>密码</text>
+      <input placeholder="请输入密码" password value="{{loginPassword}}" bindinput="bindLoginPasswordInput" />
+    </view>
+
+    <button class="login-btn primary-btn" bindtap="handleLogin">登录</button>
+  </view>
+
+  <!-- 注册表单 -->
+  <view wx:if="{{tab === 1}}" class="form">
+    <view class="form-item">
+      <text>姓名</text>
+      <input placeholder="请输入真实姓名" value="{{registerName}}" bindinput="bindRegisterNameInput" />
+    </view>
+
+    <view class="form-item">
+      <text>手机号</text>
+      <input placeholder="请输入手机号" value="{{registerPhone}}" bindinput="bindRegisterPhoneInput" />
+    </view>
+
+    <view class="form-item">
+      <text>密码</text>
+      <input placeholder="请输入密码" password value="{{registerPassword}}" bindinput="bindRegisterPasswordInput" />
+    </view>
+
+    <button class="login-btn primary-btn" bindtap="handleRegister">注册</button>
+  </view>
+</view>
